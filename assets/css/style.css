@@ -18,12 +18,17 @@ nav {
     padding: 5px 50px;
 }
 
+nav p {
+    margin-top: 21px;
+}
+
 nav ul {
     display: flex;
+    flex-direction: column;
 }
 
 nav ul li {
-    margin: 0 0 0 50px;
+    margin: 5px 0 5px 50px;
     list-style: none;
 }
 
@@ -48,12 +53,13 @@ nav ul li a:hover {
 }
 
 #edito {
-    height: 250px;
+    min-height: 250px;
     background-color: rgb(60, 90, 156);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 21px;
 }
 
 #edito h1 {
@@ -68,7 +74,8 @@ nav ul li a:hover {
 }
 
 #projects h1 {
-    margin: 25px 150px;
+    margin: 25px 0;
+    text-align: center;
 }
 
 #projects-container {
@@ -91,12 +98,9 @@ nav ul li a:hover {
     width: 100%;
 }
 
-.project-3 {
-    grid-area: 1 / 3;
-}
-
 #contact h1 {
-    margin: 10px 150px 25px;
+    margin: 10px 0px 25px;
+    text-align: center;
 }
 
 #contact form {
@@ -115,32 +119,18 @@ nav ul li a:hover {
     border-radius: 5px;
 }
 
-.form-item-1 {
-    grid-area: 1 / 1 / 1 / 2;
-}
-.form-item-2 {
-    grid-area: 1 / 3 / 1 / 8;
+.form-item-2, .form-item-4, .form-item-6 {
     border: 1px solid #AAA;
 }
-.form-item-3 {
-    grid-area: 2 / 1 / 2 / 2;
-}
-.form-item-4 {
-    grid-area: 2 / 3 / 2 / 8;
-    border: 1px solid #AAA;
-}
-.form-item-5 {
-    grid-area: 3 / 1 / 3 / 2;
-}
-.form-item-6 {
-    grid-area: 3 / 3 / 3 / 8;
-    border: 1px solid #AAA;
-}
+
 .form-item-7 {
-    grid-area: 4 / 7 / 4 / 8;
     background-color: rgb(5, 171, 109);
     color: #FFF;
     border: none;
+}
+
+.form-item-7:hover {
+    cursor: pointer;
 }
 
 footer {
@@ -166,4 +156,54 @@ footer i {
 
 .fa-linkedin {
     color: rgb(1, 117, 175);
+}
+
+@media screen and (min-width: 768px) {
+    #projects h1, #contact h1 {
+        margin-left: 75px;
+        text-align: left;
+    }
+
+    nav ul {
+        flex-direction: row;
+    }
+
+    .project-2 {
+        grid-area: 1 / 2;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #projects h1, #contact h1 {
+        margin-left: 150px;
+    }
+
+    .project-3 {
+        grid-area: 1 / 3;
+    }
+
+    #contact form {
+        grid-template-columns: 1fr 4fr 1fr ;
+    }    
+    .form-item-1 {
+        grid-area: 1 / 1;
+    }
+    .form-item-2 {
+        grid-area: 1 / 2 / 1 / 4;
+    }
+    .form-item-3 {
+        grid-area: 2 / 1;
+    }
+    .form-item-4 {
+        grid-area: 2 / 2 / 2 / 4;
+    }
+    .form-item-5 {
+        grid-area: 3 / 1;
+    }
+    .form-item-6 {
+        grid-area: 3 / 2 / 3 / 4;
+    }
+    .form-item-7 {
+        grid-area: 4 / 3;
+    }
 }
