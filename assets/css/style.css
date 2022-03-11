@@ -123,6 +123,10 @@ nav ul li a:hover {
     border: 1px solid #AAA;
 }
 
+.form-item-6 {
+    height: 200px;
+}
+
 .form-item-7 {
     background-color: rgb(5, 171, 109);
     color: #FFF;
@@ -183,7 +187,7 @@ footer i {
     }
 
     #contact form {
-        grid-template-columns: 1fr 4fr 1fr ;
+        grid-template-columns: 1fr 4fr 1fr;
     }    
     .form-item-1 {
         grid-area: 1 / 1;
