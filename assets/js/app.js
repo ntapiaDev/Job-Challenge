@@ -1,12 +1,18 @@
+let btns = document.querySelectorAll(".btn")
 let btnLeft = document.querySelector(".carousel-left")
 let btnRight = document.querySelector(".carousel-right")
 let slides = document.querySelector(".slides")
+let slideImgs = document.querySelectorAll(".slide img")
 
 btnLeft.style.display = "none"
 
 let widthIndex = 1
 if (window.matchMedia("(min-width: 1200px)").matches) {
     widthIndex = 3
+    for (let btn of btns) {
+        btn.style.width = "50px"
+    btn.style.height = "50px"
+    }
   } else if (window.matchMedia("(min-width: 768px)").matches) {
     widthIndex = 2
   }
@@ -25,6 +31,19 @@ let addSlide = function() {
     carouselWidth()
 }
 
+let fadeIn = function() {
+    slideImgs = document.querySelectorAll(".slide img")
+    for (let slideImg of slideImgs) {
+        slideImg.style.transition = "opacity 0s"
+        slideImg.style.opacity = "0"
+        let opacity = function() {
+            slideImg.style.transition = "opacity 0.5s"
+            slideImg.style.opacity = "1"
+        }
+        setTimeout(opacity, 50)
+    }    
+}
+
 let carouselIndex = 0
 let moveRight = function() {
     carouselIndex += 1
@@ -33,6 +52,7 @@ let moveRight = function() {
     if (btnLeft.style.display = "none") {
         btnLeft.style.display = "flex"
     }
+    fadeIn()
 }
 let moveLeft = function() {
     carouselIndex -= 1
@@ -40,6 +60,7 @@ let moveLeft = function() {
     if (carouselIndex === 0) {
         btnLeft.style.display = "none"
     }
+    fadeIn()
     clearInterval(autoMove)
 }
 
@@ -47,5 +68,4 @@ carouselWidth()
 btnRight.addEventListener("click", moveRight)
 btnLeft.addEventListener("click", moveLeft)
 
-let autoMove = setInterval(function() {
-    moveRight()}, 2000)
+let autoMove = setInterval(moveRight, 2000)
