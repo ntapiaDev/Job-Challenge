@@ -40,8 +40,12 @@ let moveLeft = function() {
     if (carouselIndex === 0) {
         btnLeft.style.display = "none"
     }
+    clearInterval(autoMove)
 }
 
 carouselWidth()
-btnLeft.addEventListener("click", moveLeft)
 btnRight.addEventListener("click", moveRight)
+btnLeft.addEventListener("click", moveLeft)
+
+let autoMove = setInterval(function() {
+    moveRight()}, 2000)
