@@ -1,5 +1,9 @@
 * {box-sizing: border-box;}
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: sans-serif;
@@ -20,6 +24,7 @@ nav {
 
 nav p {
     margin-top: 21px;
+    color: #FFF;
 }
 
 nav ul {
@@ -33,7 +38,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #000;
+    color: #FFF;
     text-decoration: none;
 }
 
@@ -53,24 +58,71 @@ nav ul li a:hover {
 }
 
 #edito {
-    min-height: 250px;
     background-color: rgb(60, 90, 156);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
     padding: 21px;
 }
 
 #edito h1 {
-    color: rgb(51, 51, 51);
+    color: #FFF;
     font-weight: normal;
     margin: 5px;
 }
 
-#edito p {
-    text-align: center;
-    margin: 5px;
+#edito .carousel {
+    padding: 25px;
+    position: relative;
+    overflow: hidden;
+    width: 95%;
+    height: 300px;
+    margin-bottom: 25px;
+}
+
+.slides {
+    display: flex;
+    /* transition: transform 0.5s; */
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#edito .carousel .slide {
+    width: 25%;
+    height: 400px;
+    margin: 0 50px;
+    background-color: #FFF;
+}
+
+.btn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    top: calc(50% - 25px);
+    left: 0;
+    border: 1px solid #FFF;
+    background-color: #FFF;
+    display: flex;
+    z-index: 5;
+}
+
+.btn i {
+    margin: auto;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.carousel-right {
+    left: auto;
+    right: 0;
 }
 
 #projects h1 {
