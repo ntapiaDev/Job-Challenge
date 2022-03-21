@@ -126,3 +126,20 @@ for (let modalBtn of modalBtnAll) {
 for (let closeModalBtn of closeModalBtnAll) {
     closeModalBtn.addEventListener("click", closeModal)
 }
+
+// Controle du formulaire
+
+let formBtn = document.querySelector(".form-item-7")
+let textarea = document.querySelector("textarea")
+
+// let regex = /^.*[^.*]$/;
+
+formBtn.onclick = function(e) {
+    let regex = new RegExp('[^a-zA-ZÀ-ÿ,;:!?.&$€@ \']');
+    if (!regex.test(textarea.value)) {
+        console.log("Message envoyé")
+    } else {
+        alert("Caractère interdit détecté")
+        e.preventDefault()
+    }
+}
