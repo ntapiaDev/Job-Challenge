@@ -263,6 +263,7 @@ nav ul li a:hover {
     background-color: rgb(5, 171, 109);
     color: #FFF;
     border: none;
+    transition: background-color 1s;
 }
 
 .form-item-7:hover {

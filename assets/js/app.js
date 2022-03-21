@@ -132,12 +132,18 @@ for (let closeModalBtn of closeModalBtnAll) {
 let formBtn = document.querySelector(".form-item-7")
 let textarea = document.querySelector("textarea")
 
-// let regex = /^.*[^.*]$/;
-
 formBtn.onclick = function(e) {
-    let regex = new RegExp('[^a-zA-ZÀ-ÿ,;:!?.&$€@ \']');
-    if (!regex.test(textarea.value)) {
-        console.log("Message envoyé")
+    let regex = new RegExp('[^a-zA-ZÀ-ÿ,;:!?.&$€@ \']')
+    if (textarea.value.length < 10) {
+        alert("Merci de saisir 10 caractères minimum")
+        e.preventDefault()
+    }
+    else if (!regex.test(textarea.value)) {
+        formBtn.value = "Message envoyé !"
+        formBtn.style.backgroundColor = "rgba(5, 171, 109, 0.5)"
+        formBtn.style.border = "1px solid rgb(5, 171, 109)"
+        formBtn.style.color = "#000"
+
     } else {
         alert("Caractère interdit détecté")
         e.preventDefault()
