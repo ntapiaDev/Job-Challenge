@@ -103,14 +103,20 @@ for (let card of cards) {
 // MODALE
 
 let modalBtnAll = document.querySelectorAll(".flip-btn")
+let modal = document.querySelector("#modal")
 let closeModalBtnAll = document.querySelectorAll(".modal-btn")
 
 let openModal = function() {
-    this.parentElement.parentElement.nextElementSibling.style.display = "block"
+    modal.style.display = "block"
+    this.parentElement.children[0].style.display = "block"
+    this.parentElement.children[1].style.transform = "rotateY(0deg)"
+    this.parentElement.children[2].style.transform = "rotateY(0deg)"
+    this.parentElement.children[3].style.display = "none"
+    modal.children[0].children[0].innerHTML = this.parentElement.innerHTML
 }
 
 let closeModal = function() {
-    this.parentElement.parentElement.style.display = "none"
+    modal.style.display = "none"
 }
 
 for (let modalBtn of modalBtnAll) {

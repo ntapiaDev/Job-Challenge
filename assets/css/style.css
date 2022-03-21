@@ -188,7 +188,7 @@ nav ul li a:hover {
 
 /* Modal */
 
-.modal {
+#modal {
     position: fixed;
     top: 0;
     height: 100%;
