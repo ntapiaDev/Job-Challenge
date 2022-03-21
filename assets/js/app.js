@@ -69,3 +69,54 @@ btnRight.addEventListener("click", moveRight)
 btnLeft.addEventListener("click", moveLeft)
 
 let autoMove = setInterval(moveRight, 2000)
+
+// FLIPCARD
+
+let cards = document.querySelectorAll(".project")
+
+let flip = function() {
+    this.children[0].style.transform = "rotateY(180deg)"
+    this.children[0].children[0].style.display = "none"
+    this.children[0].children[1].style.transform = "rotateY(-180deg)"
+    this.children[0].children[2].style.display = "block"
+    this.children[0].children[2].style.transform = "rotateY(-180deg)"
+    this.children[0].children[3].style.display = "block"
+}
+
+let unflip = function() {
+    this.children[0].style.transform = "rotateY(0deg)"
+    this.children[0].children[0].style.display = "block"
+    this.children[0].children[1].style.transform = "rotateY(0deg)"
+    this.children[0].children[2].style.display = "none"
+    this.children[0].children[2].style.transform = "rotateY(0deg)"
+    this.children[0].children[3].style.display = "none"
+}
+
+for (let card of cards) {
+    card.addEventListener("mouseover", flip)
+}
+
+for (let card of cards) {
+    card.addEventListener("mouseout", unflip)
+}
+
+// MODALE
+
+let modalBtnAll = document.querySelectorAll(".flip-btn")
+let closeModalBtnAll = document.querySelectorAll(".modal-btn")
+
+let openModal = function() {
+    this.parentElement.parentElement.nextElementSibling.style.display = "block"
+}
+
+let closeModal = function() {
+    this.parentElement.parentElement.style.display = "none"
+}
+
+for (let modalBtn of modalBtnAll) {
+    modalBtn.addEventListener("click", openModal)
+}
+
+for (let closeModalBtn of closeModalBtnAll) {
+    closeModalBtn.addEventListener("click", closeModal)
+}
